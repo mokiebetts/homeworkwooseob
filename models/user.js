@@ -1,31 +1,34 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'mysql',
-});
+const { DataTypes, Model } = require('sequelize');
 
-const User = sequelize.define('User', {
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    nickname: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-});
+module.exports = (sequelize) => {
+    class User extends Model {
+        static associate(models) {
+            // 필요한 경우 여기에서 관계를 정의합니다.
+        }
+    }
 
-
-sequelize.sync()
-    .then(() => {
-        console.log('MySQL 테이블이 성공적으로 생성되었습니다.');
-    })
-    .catch((error) => {
-        console.error('MySQL 테이블 생성 중 에러 발생:', error);
+    User.init({
+        userId: {
+            primaryKey: true,
+            autoIncrement: true,
+            type: DataTypes.INTEGER,
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false, // 예시: 필요에 따라 조정하세요
+        },
+        nickname: {
+            type: DataTypes.STRING,
+            allowNull: false, // 예시: 필요에 따라 조정하세요
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false, // 예시: 필요에 따라 조정하세요
+        },
+    }, {
+        sequelize,
+        modelName: 'User',
     });
 
-module.exports = User;
+    return User;
+};

@@ -2,21 +2,21 @@
     "development": {
         "username": "root",
         "password": "dntjq5130",
-        "database": "express_sequlize_init",
+        "database": "database_development",
         "host": "express-database.c0nroi4ityao.ap-northeast-2.rds.amazonaws.com",
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
         "password": "dntjq5130",
-        "database": "express_sequlize_init",
-        "host": "127.0.0.1",
+        "database": "database_development",
+        "host": "express-database.c0nroi4ityao.ap-northeast-2.rds.amazonaws.com",
         "dialect": "mysql"
     },
     "production": {
         "username": "root",
         "password": "dntjq5130",
-        "database": "express_sequlize_init",
+        "database": "database_development",
         "host": "express-database.c0nroi4ityao.ap-northeast-2.rds.amazonaws.com",
         "dialect": "mysql"
     }
